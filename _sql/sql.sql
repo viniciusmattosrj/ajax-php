@@ -3,27 +3,27 @@
 CREATE DATABASE php_ajax;
 
 -- Criação da tabela
-CREATE TABLE users(
+CREATE TABLE user(
     id int(11) auto_increment PRIMARY KEY,
     name varchar(50) not null,
+    email varchar(80) not null,
     created_at timestamp default current_timestamp
 );
 
 -- Exibindo a estrutura da tabela
-desc users
+desc user
 
 -- Apagando tabela
-DROP TABLE users;
+DROP TABLE user;
 
 -- Indicando qual tabela usar
 use php_ajax;
 
 -- Populando com dados
-INSERT INTO users (name) values('Vinicius Mattos');
-INSERT INTO users (name) values('Carlos Roberto');
-INSERT INTO users (name) values('Thais Souza');
-INSERT INTO users (name) values('Jean Silva');
-INSERT INTO users (name) values('Monica Silva');
-
+INSERT INTO user (name, email) values('Vinicius Mattos', 'vinicius@gmail.com');
+INSERT INTO user (name, email) values('Carlos Roberto', 'carlos@gmail.com');
+INSERT INTO user (name, email) values('Thais Souza', 'thais@gmail.com');
+INSERT INTO user (name, email) values('Jean Silva', 'jean@gmail.com');
+INSERT INTO user (name, email) values('Monica Silva', 'monica@gmail.com');
 -- Simples consulta database
-SELECT * FROM users;
+SELECT * FROM user;
