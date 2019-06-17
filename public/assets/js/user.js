@@ -12,9 +12,8 @@ window.onload = function () {
 
             if (this.readyState == 4 && this.status == 200) {
 
-                // var users = JSON.parse(this.responseText);
-                // console.log(users);
-                console.log(this.responseText);
+                var users = JSON.parse(this.responseText);
+                console.log(users);
             }
         }
 
