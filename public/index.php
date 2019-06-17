@@ -10,5 +10,8 @@
     <script src="assets/js/user.js"></script>
 
     <button id="btn-users">Users</button>
+
+    <div id="div-users"></div>
 </body>
+
 </html>

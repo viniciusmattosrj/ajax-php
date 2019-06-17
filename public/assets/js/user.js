@@ -2,16 +2,20 @@ window.onload = function () {
 
     var btn_users = document.querySelector("#btn-users");
 
+    var div_users = document.querySelector("#div-users");
+
     var xhttp = new XMLHttpRequest();
 
     btn_users.onclick = function () {
 
         xhttp.onreadystatechange = function () {
 
-            console.log(xhttp.readyState);
+            //console.log(xhttp.readyState);
 
-            if (this.readyState = 4 && this.status == 200) {
-                console.log(this.responseText);
+            if (this.readyState == 4 && this.status == 200) {
+
+                var users = JSON.parse(this.responseText);
+                console.log(users);
             }
         }
 
