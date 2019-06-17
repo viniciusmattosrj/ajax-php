@@ -10,20 +10,17 @@ window.onload = function () {
 
         xhttp.onreadystatechange = function () {
 
-            //console.log(xhttp.readyState);
-
             if (this.readyState == 4 && this.status == 200) {
 
-                var users = JSON.parse(this.responseText);
-                console.log(users);
+                // var users = JSON.parse(this.responseText);
+                // console.log(users);
+                console.log(this.responseText);
             }
         }
 
-        console.log('veio depois do onready');
-
         /* 
             1. O true significa que estou trabalhando com uma requisição assíncrona 
-            2. E essa requição é um callback da function declarada na linha 7
+            2. E essa requição é um callback da function declarada na linha 9
         */
         xhttp.open('GET', 'ajax/user.php', true);
 
