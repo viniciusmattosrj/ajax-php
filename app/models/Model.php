@@ -10,15 +10,15 @@ abstract class Model{
     {
         $this->connection = Connection::connect();
     }
-}
 
-public function all()
-{
-    $sql = "SELECT * FROM {$this->table}";
-    
-    $all = $this->connection->prepare($sql);
+    public function all()
+    {
+        $sql = "SELECT * FROM {$this->table}";
+        
+        $all = $this->connection->prepare($sql);
 
-    $all->execute();
+        $all->execute();
 
-    return $all->fetchAll();
+        return $all->fetchAll();
+    }
 }

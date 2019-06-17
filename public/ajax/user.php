@@ -6,5 +6,4 @@ use app\models\User;
 
 $user = new User;
 
-//echo json_encode($user->all());
-var_dump($user->all());
+echo json_encode($user->all());
