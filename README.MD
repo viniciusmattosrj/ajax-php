@@ -5,9 +5,13 @@ Criando seus sites e sistemas utilizando o AJAX, independente se for o AJAX puro
 
 ## Requerimentos
 
-Install <a href="https://docs.docker.com/install/">Docker</a>
+- Install <a href="https://docs.docker.com/install/">Docker</a>
 
-Install <a href="https://docs.docker.com/compose/install/">docker-compose</a>
+- Install <a href="https://docs.docker.com/compose/install/">docker-compose</a>
+
+- PHP >= 7.1
+
+- Postgres >= 9.4 ou Mysql >= 5.6
 
 
 ## Instalação
@@ -33,6 +37,18 @@ php -S 10.11.0.2:8008 -t public
 ```
 
 No browser digite http://10.11.0.2:8008
+
+Para o acesso no <strong>POSTGRES</strong> database administration tool, use http://localhost:5050 e use as credênciais abaixo:
+
+  - server:
+  - username:
+  - password:
+
+Para o acesso no <strong>MYSQL</strong> database administration tool, use http://localhost:8080 e use as credênciais abaixo:
+
+  - server:
+  - username:
+  - password:
 
 
 ## Contribuições
