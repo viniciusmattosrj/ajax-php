@@ -4,7 +4,8 @@ require "../../config.php";
 
 use app\models\User;
 
-//sleep(5);
+/* Função que retarda o retorno do que estiver abaixo */
+sleep(5);
 
 $user = new User;
 
