@@ -1,11 +1,8 @@
 var xhttp = new XMLHttpRequest;
 
 function xmlHttpGet(url, callback, parameters='') {
-
     xhttp.onreadystatechange = callback;
-
     xhttp.open('GET',url+'.php'+parameters, true);
-
     xhttp.send();
 }
 

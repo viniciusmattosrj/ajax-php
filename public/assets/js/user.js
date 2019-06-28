@@ -4,15 +4,17 @@ window.onload = function () {
 
     var div_users = document.querySelector("#div-users");
 
-    var xhttp = new XMLHttpRequest();
-
     btn_users.onclick = function () {
 
-        xhttp.onreadystatechange = function () {
+        xmlHttpGet('ajax/user', function () {
 
-            if (this.readyState == 4 && this.status == 200) {
+            beforeSend(function () {
+                div_users.innerHTML = `<i class="fa fa-refresh fa-spin fa-3px fa-fw"></i><span class="sr-only">Loading...</span>`;
+            });
 
-                var users = JSON.parse(this.responseText);
+            success(function () {
+
+                var users = JSON.parse(xhttp.responseText);
 
                 var table = `<table class='table table-striped'>`;
 
@@ -37,16 +39,12 @@ window.onload = function () {
                 table += `</table>`;
 
                 div_users.innerHTML = table;
-            }
-        }
+            });
 
-        /*
-            1. O true significa que estou trabalhando com uma requisição assíncrona
-            2. E essa requição é um callback da function declarada na linha 9
-        */
-        xhttp.open('GET', 'ajax/user.php', true);
+            error(function () {
+                div_users.innerHTML = 'Ocorreu um erro';
+            });
 
-        xhttp.send();
+        });
     }
-
 }
