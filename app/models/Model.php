@@ -11,14 +11,16 @@ abstract class Model{
         $this->connection = Connection::connect();
     }
 
-    public function all()
+    public function find($field, $value)
     {
-        $sql = "SELECT * FROM {$this->table}";
-        
-        $all = $this->connection->prepare($sql);
+        $sql = "SELECT * FROM {$this->table} where {$field} = ?";
 
-        $all->execute();
+        $find = $this->connection->prepare($sql);
 
-        return $all->fetchAll();
+        $find->bindValue(1, $value);
+
+        $find->execute();
+
+        return $find->fetch();
     }
 }
