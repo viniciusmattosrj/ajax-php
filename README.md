@@ -1,9 +1,9 @@
-# Sobre o Projeto
+## Sobre o Projeto
 
  - <a href="https://www.asolucoesweb.com.br/curso/criando-mvc-do-zero">Criando MVC e CMS do zero</a> - Alexandre Cardoso da ASW
 
 
-## Requerimentos
+#### Requerimentos
 
 - Install <a href="https://docs.docker.com/install/">Docker</a>
 
@@ -11,10 +11,10 @@
 
 - PHP >= 7.1
 
-- Postgres >= 9.6 ou Mysql >= 5.7
+- Postgres >= 11 ou Mysql >= 5.7
 
 
-## Instalação
+#### Instalação
 Realizar o git clone do projeto base para o funcionamento da sua rede docker:
 ```bash
 git@github.com:viniciusmattosrj/projetos.git
@@ -23,11 +23,6 @@ git@github.com:viniciusmattosrj/projetos.git
 Para que o git não considere alterações de permissão como modificações a serem rastreadas, execute:
 ```
 git config core.fileMode false
-```
-
-Agora suba o servidor:
-```
-docker-compose up -d
 ```
 
 Navege até dentro da pasta projetos e realize o git clone do projeto
@@ -42,7 +37,7 @@ git config core.fileMode false
 
 Entre pelo terminal na pasta do projeto e rode:
 ```
-cp ./docker-compose-example.php  ./docker-compose.php
+cp -v ./docker-compose-example.php  ./docker-compose.php
 ```
 
 Agora suba o servidor:
@@ -96,10 +91,10 @@ Para o acesso no <strong>MYSQL</strong> database administration tool, use http:/
   - password:
 
 
-## Contribuições
+#### Contribuições
 Caso identifique pontos
 que possam ser aprimorados envie o seu PR. ;-)
 
 
-## License
+#### License
 [MIT](https://choosealicense.com/licenses/mit/)
