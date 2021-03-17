@@ -1,6 +1,6 @@
 <?php
 
-require "../../config.php";
+require "../../index.php";
 
 use app\models\User;
 

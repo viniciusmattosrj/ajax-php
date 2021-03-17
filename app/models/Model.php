@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-abstract class Model{
+abstract class Model {
     
     private $connection;
     

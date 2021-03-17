@@ -4,11 +4,13 @@ namespace app\models;
 
 use PDO;
 
-class Connection{
+class Connection
+{
 
-    public static function connect(){
-
-        $pdo = new PDO("mysql:host=10.11.0.3;dbname=php_ajax", "root", "A123456");
+    public static function connect()
+    {
+        $config = require __DIR__ . '../../config/config.php';
+        $pdo    = new PDO("mysql:host={$config['db']['host']}; dbname={$config['db']['dbname']}; charset={$config['db']['charset']}", $config['db']['username'], $config['db']['password']);
 
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
