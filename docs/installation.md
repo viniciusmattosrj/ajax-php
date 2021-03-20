@@ -1,6 +1,7 @@
 # Instalação
 
 Faça um git clone do projeto php-ajax:
+
 ```
 git clone git@github.com:viniciusmattosrj/php-ajax.git
 ```
@@ -8,7 +9,6 @@ git clone git@github.com:viniciusmattosrj/php-ajax.git
 ## Encoding
 
 Todos os arquivos estão em **UTF-8**.
-
 
 #### Importante para que o git não considere alterações de permissão como modificações a serem rastreadas
 
@@ -27,41 +27,46 @@ cp -v .env.example .env
 ```
 
 &nbsp;
+
 #### Configurações do .env:
 
-Valor | O que é? | Exemplos de Parâmetros
-:---: | --- | :---:
-DB_CONNECTION        | Nome adapter da base de dados | ex: 'mysql'
-DB_HOST              | Ip ou nome contaienr da base de dados | ex: '10.11.0.11' ou 'mysql'
-DB_PORT              | Port de conexão com base de dados | ex: '3306'
-DB_DATABASE          | Nome da base dados | ex: 'php_ajax'
-DB_USERNAME          | Usuário de conexão com base de dados | ex: 'root'
-DB_PASSWORD          | Senha de conexão com base de dados | ex: '123Mudar'
+|     Valor     | O que é?                              |   Exemplos de Parâmetros    |
+| :-----------: | ------------------------------------- | :-------------------------: |
+| DB_CONNECTION | Nome adapter da base de dados         |         ex: 'mysql'         |
+|    DB_HOST    | Ip ou nome contaienr da base de dados | ex: '10.11.0.11' ou 'mysql' |
+|    DB_PORT    | Port de conexão com base de dados     |         ex: '3306'          |
+|  DB_DATABASE  | Nome da base dados                    |       ex: 'php_ajax'        |
+|  DB_USERNAME  | Usuário de conexão com base de dados  |         ex: 'root'          |
+|  DB_PASSWORD  | Senha de conexão com base de dados    |       ex: '123Mudar'        |
 
 &nbsp;
+
 #### Subir o container
 
 Executar o seguinte comando no diretório do **php-ajax**:
+
 ```
 docker-compose up -d
 ```
 
 Ele fará com que os container específico do php-ajax sejam iniciado.
 
-Execução fora container: 
+Execução fora container:
+
 ```
 docker-compose exec php Makefile"
 ```
 
 Execução dentro container:
+
 ```
 docker-compose exec php bash -c "php -S 10.11.0.11:8008 -t public"
 ```
 
-
 #### Instalando as dependências via composer
 
 No projeto **php-ajax** execute o comando abaixo:
+
 ```
 docker run --rm -v $(pwd):/app -v ~/.ssh:/root/.ssh composer install -vvv
 ```
@@ -75,25 +80,27 @@ sudo chmod 777 -R keys vendor
 #### Database e Migrations
 
 MySQL:
+
 ```
 docker exec -it mysql bash
 mysql -u root -c "CREATE DATABASE php_ajax;";
 ```
 
 Postgres:
-``` 
+
+```
 docker exec -it postgres bash
 psql -U webadm -c "CREATE DATABASE php_ajax";
 ```
 
 Realizando a importação dump sql para a base criada:
 
-MySQL: `mysql -u root -p php_ajax < /var/lib/mysql57/php_ajax.sql` 
+MySQL: `mysql -u root -p php_ajax < /var/lib/mysql57/php_ajax.sql`
 
 Postgres: `psql -U webadm php_ajax < /var/lib/postgresql/php_ajax.sql`
 
-
 Execute os comandos abaixo:
+
 ```
 Dentro do container: php vendor/bin/phinx migrate -e development
 Fora do container: docker-compose exec php bash -c "php vendor/bin/phinx migrate -e development"
@@ -115,6 +122,7 @@ CREATE DATABASE php-ajax_test;
 #### Usando o php-ajax
 
 Adicionar o ip do php-ajax no arquivo **/etc/hosts**:
+
 ```
 10.11.0.11  php-ajax
 ```
@@ -122,29 +130,7 @@ Adicionar o ip do php-ajax no arquivo **/etc/hosts**:
 O IP está definido no **docker-compose.yml** do php-ajax.
 
 Se conectar, pelo navegador a:
+
 ```
 http://php-ajax
 ```
-
-#### Executar os testes
-
-Se conecte ao container **php-ajax** e execute o seguinte comando:
-
-```
-./vendor/bin/phpunit
-```
-
-Para rodar o teste em classes/métodos específicos:
-```
-./vendor/bin/phpunit --filter testNomeDaClasse
-```
-
-#### Usando a aplicação
-Utilizando Altair, Insomnia, Postman ou qualquer outro client gráfico do GraphQL, gere um novo token através da mutation createToken on Tradetools
-
-Adicione token as Header, e.g.:
-key: Authorization
-value: Bearer my_token
-Verifique a instalação na URL e use o endpoint (e.g.) http://10.11.0.11/graphql
-
-Leia as docs do GraphQL conforme a API.
